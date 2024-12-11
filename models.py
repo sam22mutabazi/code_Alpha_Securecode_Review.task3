@@ -1,12 +1,13 @@
+# Create your models here.
+from django.contrib.auth.models import User  # Importing the built-in User model
 from django.db import models
 
-class UserProfile(models.Model):
-    username = models.CharField(max_length=150, unique=True)
-    password = models.CharField(max_length=128)
-    email = models.EmailField(unique=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)  # Character field for the title
+    content = models.TextField()  # Text field for the content
+    published_date = models.DateTimeField(auto_now_add=True)  # DateTime field for publishing date
+    author = models.ForeignKey(User, on_delete=models.CASCADE)  # ForeignKey to the built-in User model
 
     def __str__(self):
-        return self.username
-
-# Create your models here.
+        return self.title  # This method returns the title when the object is printed
