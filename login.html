@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
 <body>
     <h1>Login</h1>
     <form method="POST">
         {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br><br>
+        <label for="username">Email (Username):</label><br>
+        <label>
+            <input type="email" name="username" required>
+        </label><br><br>
+
+        <label for="password">Password:</label><br>
+        <label>
+            <input type="password" name="password" required>
+        </label><br><br>
+
         <button type="submit">Login</button>
     </form>
-    <p>Don't have an account? <a href="/register/">Register here</a></p>
 </body>
 </html>
